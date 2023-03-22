@@ -1,0 +1,27 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec ts-node src/index.ts --project ./tsconfig.json --es-module-specifier-resolution=node"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.5.0",
+    "@types/node": "^18.15.5",
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21",
+    "ts-node": "^10.9.1",
+    "ts-standard": "^12.0.2",
+    "typescript": "^5.0.2"
+  }
+}

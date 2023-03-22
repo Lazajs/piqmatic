@@ -1,0 +1,28 @@
+{
+  "name": "piqmatic-app",
+  "version": "1.0.0",
+  "description": "Search for movies and ratings.",
+  "main": "index.ts",
+  "type": "module",
+  "workspaces": [
+    "api",
+    "piqmatic"
+  ],
+  "scripts": {
+    "dev:client": "npm run dev -w piqmatic",
+    "dev:server": "npm run dev -w api",
+    "start:server": "npm run start -w api"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-standard-with-typescript": "^34.0.1",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "typescript": "^5.0.2"
+  }
+}
