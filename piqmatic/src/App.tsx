@@ -1,15 +1,10 @@
-import { useQuery } from '@apollo/client/react'
-import { GET_GENRES } from './services/queries'
-import { useEffect } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
 
 export default function App () {
-  const { data } = useQuery(GET_GENRES) // returns {data, loading, error}
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
-
   return (
-    <h1 className='text-[2rem]'>hello world</h1>
+    <Routes>
+      <Route path='/' element={<Home />} />
+    </Routes>
   )
 }

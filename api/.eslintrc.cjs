@@ -14,6 +14,8 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off'
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off'
   }
+
 }
