@@ -13,18 +13,13 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: [
-      'piqmatic/tsconfig.json',
-      'api/tsconfig.json'
-    ]
+    project: ['./piqmatic/tsconfig.json']
   },
   plugins: [
     'react'
   ],
   rules: {
-    '@typescript-eslint/prefer-nullish-coalescing': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off',
-    'react/react-in-jsx-scope': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off'
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'react/react-in-jsx-scope': 'off'
   }
 }

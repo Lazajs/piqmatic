@@ -5,7 +5,7 @@ import './index.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001',
+  uri: 'http://localhost:4001',
   cache: new InMemoryCache()
 })
 
