@@ -13,8 +13,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./piqmatic/tsconfig.json',
-      './api/tsconfig.json']
+    project: [
+      'piqmatic/tsconfig.json',
+      'api/tsconfig.json'
+    ]
   },
   plugins: [
     'react'

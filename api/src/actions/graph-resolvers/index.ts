@@ -1,4 +1,4 @@
-import genres from './query/genres.js'
+import genres from './genres.js'
 
 const resolvers = {
   Query: {

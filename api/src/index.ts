@@ -1,8 +1,8 @@
 import { ApolloServer } from '@apollo/server'
 import { startStandaloneServer } from '@apollo/server/standalone'
 import dotenv from 'dotenv'
-import typeDefs from './services/typeDefs.js'
-import resolvers from './services/resolvers.js'
+import typeDefs from './actions/graph-types/index.js'
+import resolvers from './actions/graph-resolvers/index.js'
 
 dotenv.config()
 
