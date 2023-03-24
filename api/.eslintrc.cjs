@@ -10,7 +10,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: ['./api/tsconfig.json']
+    project: ['./api/tsconfig.json'],
+    exclude: ['types.d.ts']
   },
   rules: {
     '@typescript-eslint/prefer-nullish-coalescing': 'off',

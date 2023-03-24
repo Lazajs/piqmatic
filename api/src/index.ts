@@ -6,11 +6,10 @@ import 'dotenv/config'
 
 const server = new ApolloServer({ typeDefs, resolvers })
 
-const { PORT } = process.env
-const port = PORT || 4001
+const port = process.env.PORT || 3001
 
 const { url } = await startStandaloneServer(server, {
-  listen: { port: +port }
+  listen: { port: port as number }
 })
 
 console.log(`Apollo running on ${url}`)

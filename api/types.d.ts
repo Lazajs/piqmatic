@@ -1,11 +1,9 @@
-/* eslint-disable */
-
 interface Image {
   url?: string
   caption: string
 }
 export interface Movie {
-  id: string,
+  id: string
   image: Image
   type: string
   title: string
@@ -13,26 +11,26 @@ export interface Movie {
 }
 
 export interface MovieList {
-  results: Movie[],
-  next: string,
-  page: number,
+  results: Movie[]
+  next: string
+  page: number
   genre: string
 }
 
 export interface MovieFromAPI {
-  id: string,
+  id: string
   primaryImage: {
-    url?: string,
+    url?: string
     caption: {
       plainText: string
     }
-  },
+  }
   titleType: {
     text: string
-  },
+  }
   titleText: {
     text: string
-  },
+  }
   releaseYear: {
     year: number
   }
