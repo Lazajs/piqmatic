@@ -1,29 +1,29 @@
-import { useQuery } from '@apollo/client/react'
-import { GET_GENRES } from 'src/services/queries'
 import MovieSection from 'src/components/MovieSection'
-
-interface GenreQuery {
-  genres: string[]
-}
+import useMovieGenres from 'src/hooks/useMovieGenres'
+import Nav from 'src/components/Nav'
 
 export default function Home () {
-  const { data, loading, error } = useQuery<GenreQuery>(GET_GENRES)
+  const { data, loading, error } = useMovieGenres()
+
   if (error) console.log(error)
 
   if (data && !loading) {
     const { genres } = data
     return (
       <>
-        {
-          genres.map(genre => {
-            return <MovieSection key={genre} genre={genre}/>
-          })
-        }
+        <Nav />
+        <article className='flex flex-col lg:gap-[10rem]'>
+          {
+            genres.map(genre => {
+              return <MovieSection key={genre} genre={genre}/>
+            })
+          }
+        </article>
       </>
     )
   }
 
   return (
-    <h1>LOL</h1>
+    <h1>LOADING</h1>
   )
 }

@@ -20,6 +20,12 @@ export const GET_LIST_BY_GENRE = gql`
       release
       title
       type
+      description
+      director
+      ratingData {
+        current
+        votes
+      }
     }
   }
 }

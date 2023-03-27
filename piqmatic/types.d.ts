@@ -7,15 +7,22 @@ export interface MovieList {
   genre: string
 }
 
+interface Image {
+  url?: string
+  caption: string
+}
+
+interface Rating {
+  current: number
+  votes: number
+}
 export interface Movie {
   id: string
   image: Image
   type: string
   title: string
   release: number
-}
-
-interface Image {
-  url?: string
-  caption: string
+  description: string
+  ratingData: Rating
+  director: string
 }

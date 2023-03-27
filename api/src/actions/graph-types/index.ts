@@ -4,12 +4,20 @@ const typeDefs = `#graphql
     caption: String!
   }
 
+  type Rating {
+    current: Float!
+    votes: Int!
+  }
+
   type Movie {
     id: String!
     image: Image!
     type: String!
     title: String!
-    release: Int!  
+    release: Int!
+    description: String!
+    ratingData: Rating!
+    director: String!
   }
 
   type MovieList {

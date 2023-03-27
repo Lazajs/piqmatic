@@ -17,6 +17,34 @@ module.exports = {
         brightGreen: '#89E045',
         textWhite: '#ffffff',
         textBlack: '#000000'
+      },
+      width: {
+        minMobile: '360px'
+      },
+      padding: {
+        small: '1rem',
+        medium: '2rem'
+      },
+      margin: {
+        small: '2rem',
+        medium: '4rem',
+        large: '6rem',
+        larger: '8rem'
+      },
+      fontSize: {
+        small: '1.4rem',
+        normal: '1.8rem',
+        large: '2.2rem',
+        larger: '2.6rem'
+      },
+      fontWeight: {
+        thin: '300',
+        normal: '400',
+        bold: '500',
+        black: '700'
+      },
+      fontFamily: {
+        roboto: ['Roboto', 'sans-serif']
       }
     }
   },
