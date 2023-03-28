@@ -26,6 +26,7 @@ module.exports = {
         medium: '2rem'
       },
       margin: {
+        smaller: '1rem',
         small: '2rem',
         medium: '4rem',
         large: '6rem',

@@ -16,6 +16,7 @@ export interface Movie {
   description: string
   ratingData: Rating
   director: string
+  genres: string[]
 }
 
 export interface MovieList {
@@ -53,6 +54,9 @@ export interface MovieFromAPI {
     plotText: {
       plainText: string
     }
+  }
+  genres: {
+    genres: [{ text: string }]
   }
 }
 export interface MovieListFromAPI extends MovieList {

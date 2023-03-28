@@ -25,4 +25,5 @@ export interface Movie {
   description: string
   ratingData: Rating
   director: string
+  genres: string[]
 }

@@ -26,6 +26,7 @@ export const GET_LIST_BY_GENRE = gql`
         current
         votes
       }
+      genres
     }
   }
 }

@@ -16,18 +16,21 @@ interface MovieQuery {
 export default function MovieSection ({ genre }: { genre: string }) {
   const { data, loading, error } = useQuery<MovieQuery>(GET_LIST_BY_GENRE, { variables: { genre } })
 
-  if (error) console.log(error.message)
+  if (error) console.log(error.message, genre)
 
   if (!loading && data) {
     const { listByGenre } = data
     const { results } = listByGenre
 
     return (
-      <section>
-        <h2 className='text-strongGreen text-larger font-roboto font-bold hidden lg:block'>{genre}</h2>
-        {
-          results.map(movie => <Movie key={movie.id} movie={movie} />)
-        }
+      <section className='w-full min-h-[240px]'>
+        <p className='text-strongGreen text-larger font-roboto font-bold hidden lg:inline-block'>Movies in {genre}</p>
+        <small className='ml-smaller text-normal underline'>View all</small>
+        <div className='flex overflow-x-scroll snap-x snap-mandatory overscroll-x-contain gap-[1rem] w-[100vw]'>
+          {
+            results.map(movie => <Movie key={movie.id} movie={movie} />)
+          }
+        </div>
       </section>
     )
   }

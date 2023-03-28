@@ -18,6 +18,7 @@ const typeDefs = `#graphql
     description: String!
     ratingData: Rating!
     director: String!
+    genres: [String]!
   }
 
   type MovieList {

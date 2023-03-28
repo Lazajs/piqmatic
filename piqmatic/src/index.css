@@ -50,6 +50,10 @@ body {
   font-weight: normal;
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
 .bounce {
   animation: dotBounce .5s infinite;
 }

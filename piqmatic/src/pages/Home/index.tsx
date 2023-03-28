@@ -12,7 +12,7 @@ export default function Home () {
     return (
       <>
         <Nav />
-        <article className='flex flex-col lg:gap-[10rem]'>
+        <article className='flex flex-col lg:gap-[3rem]'>
           {
             genres.map(genre => {
               return <MovieSection key={genre} genre={genre}/>

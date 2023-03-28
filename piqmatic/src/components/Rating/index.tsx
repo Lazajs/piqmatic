@@ -9,7 +9,7 @@ export default function Rating ({ rating, votes }: { rating: number, votes: numb
   })
 
   return (
-    <span className='flex'>
+    <span className='flex gap-[3px] mt-small'>
       {
         stars.map(star => star)
       }
