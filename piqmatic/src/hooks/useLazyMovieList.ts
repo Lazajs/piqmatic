@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import useGenreList from 'src/hooks/useGenreList'
 
-export default function useNearScreen (genre: string) {
+export default function useLazyMovieList (genre: string) {
   const { data, loading, getList } = useGenreList()
 
   const ref = useRef<any>()

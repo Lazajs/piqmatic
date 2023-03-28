@@ -1,9 +1,9 @@
 import Movie from '../Movie'
 import Loading from '../Loading'
-import useNearScreen from 'src/hooks/useNearScreen'
+import useLazyMovieList from 'src/hooks/useLazyMovieList'
 
 export default function MovieSection ({ genre }: { genre: string }) {
-  const { ref, data, loading } = useNearScreen(genre)
+  const { ref, data, loading } = useLazyMovieList(genre)
 
   return (
       <section ref={ref} className='w-full min-h-[240px]'>
