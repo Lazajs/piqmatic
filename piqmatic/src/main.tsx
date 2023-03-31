@@ -5,9 +5,41 @@ import './index.css'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import { BrowserRouter } from 'react-router-dom'
 
+const cache = new InMemoryCache(
+  {
+    typePolicies: {
+      Query: {
+        fields: {
+          listByGenre: {
+            keyArgs: ['genre'],
+            merge (existing, incoming) {
+              if (!existing?.results) return incoming
+              return {
+                ...incoming,
+                results: existing.results.concat(incoming.results)
+              }
+            }
+          },
+          listByPage: {
+            keyArgs: false,
+            merge (existing, incoming) {
+              if (!existing?.results) return incoming
+              return {
+                ...incoming,
+                results: existing.results.concat(incoming.results)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+)
+
 const client = new ApolloClient({
   uri: 'http://localhost:3001/',
-  cache: new InMemoryCache()
+  connectToDevTools: true,
+  cache
 })
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

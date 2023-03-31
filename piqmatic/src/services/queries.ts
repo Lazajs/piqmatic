@@ -7,8 +7,8 @@ export const GET_GENRES = gql`
 `
 
 export const GET_LIST_BY_GENRE = gql`
-  query ($genre: String!) {
-  listByGenre(genre: $genre) {
+  query ($genre: String!, $next: String) {
+  listByGenre(genre: $genre, next: $next) {
     next
     genre
     results {
@@ -31,3 +31,26 @@ export const GET_LIST_BY_GENRE = gql`
   }
 }
 `
+export const GET_LIST_BY_PAGE = gql`
+  query ($next: String) {
+  listByPage(next: $next) {
+    next
+    results {
+      id
+      image {
+        url
+        caption
+      }
+      release
+      title
+      type
+      description
+      director
+      ratingData {
+        current
+        votes
+      }
+      genres
+    }
+  }
+}`

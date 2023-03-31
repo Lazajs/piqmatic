@@ -1,31 +1,17 @@
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
 import useGenreList from 'src/hooks/useGenreList'
+import useNearScreen from './useNearScreen'
 
 export default function useLazyMovieList (genre: string) {
-  const { data, loading, getList } = useGenreList()
-
-  const ref = useRef<any>()
+  const { data, loading, getList, getMoreMovies } = useGenreList()
+  const { ref, isIntersecting, disconnect } = useNearScreen()
 
   useEffect(() => {
-    console.log(data?.listByGenre)
-    const element = ref.current
-    const onChange = (entries: any[]) => {
-      const el = entries[0]
-      if (el.isIntersecting && !data?.listByGenre) {
-        observer.unobserve(element as Element)
-        getList({ variables: { genre } })
-      }
+    if (isIntersecting) {
+      getList({ variables: { genre } })
+      disconnect()
     }
-    const observer = new IntersectionObserver(onChange, {
-      rootMargin: '100px'
-    })
+  }, [isIntersecting])
 
-    if (ref.current && !data?.listByGenre) {
-      observer.observe(element as Element)
-    }
-
-    return () => { observer.disconnect() }
-  }, [ref.current])
-
-  return { ref, data, loading, getList }
+  return { ref, movies: data?.listByGenre, loading, getList, getMoreMovies }
 }

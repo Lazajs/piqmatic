@@ -27,9 +27,15 @@ const typeDefs = `#graphql
     genre: String!
   } 
 
+  type PageDataList {
+    results: [Movie!]
+    next: String!
+  }
+
   type Query {
     genres: [String]
-    listByGenre(genre: String!, next: String): MovieList! 
+    listByGenre(genre: String!, next: String): MovieList!
+    listByPage(next: String): PageDataList!
   }
 `
 
