@@ -31,26 +31,3 @@ export const GET_LIST_BY_GENRE = gql`
   }
 }
 `
-export const GET_LIST_BY_PAGE = gql`
-  query ($next: String) {
-  listByPage(next: $next) {
-    next
-    results {
-      id
-      image {
-        url
-        caption
-      }
-      release
-      title
-      type
-      description
-      director
-      ratingData {
-        current
-        votes
-      }
-      genres
-    }
-  }
-}`

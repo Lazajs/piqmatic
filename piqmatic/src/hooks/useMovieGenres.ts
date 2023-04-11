@@ -10,5 +10,7 @@ export default function useMovieGenres () {
 
   if (error) console.log('Error fetching genres: ', error.message)
 
-  return { data: data?.genres, loading }
+  const dataGenres = data?.genres ? data.genres.filter(genre => genre !== 'Adult' && genre !== 'Short') : []
+
+  return { data: dataGenres, loading }
 }

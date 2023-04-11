@@ -13,17 +13,7 @@ const cache = new InMemoryCache(
           listByGenre: {
             keyArgs: ['genre'],
             merge (existing, incoming) {
-              if (!existing?.results) return incoming
-              return {
-                ...incoming,
-                results: existing.results.concat(incoming.results)
-              }
-            }
-          },
-          listByPage: {
-            keyArgs: false,
-            merge (existing, incoming) {
-              if (!existing?.results) return incoming
+              if (!existing?.results || existing.results.length === 0) return incoming
               return {
                 ...incoming,
                 results: existing.results.concat(incoming.results)

@@ -2,27 +2,22 @@ import Loading from '../Loading'
 import useLazyMovieList from 'src/hooks/useLazyMovieList'
 import NextMovies from './NextMovies'
 import MovieList from '../MovieList'
+import { memo } from 'react'
 
-export default function GenreList ({ genre }: { genre: string }) {
+function GenreList ({ genre }: { genre: string }) {
   const { ref, movies, loading, getMoreMovies } = useLazyMovieList(genre)
-
-  const handleClick = () => {
-    if (movies?.next) {
-      getMoreMovies()
-    }
-  }
 
   return (
       <article ref={ref} className='w-full min-h-[240px]'>
-        <p className='text-strongGreen text-larger font-roboto font-bold hidden lg:inline-block'>Movies in {genre}</p>
-        <small className='ml-smaller text-normal underline hidden lg:inline-block'>View all</small>
-        <div className='flex min-h-[210px] flex-col lg:flex-row lg:overflow-x-scroll relative lg:snap-x lg:snap-mandatory lg:overscroll-x-contain lg:gap-[1rem] w-[100vw]'>
+        <p className='text-strongGreen text-larger font-roboto font-bold inline-block'>Movies in {genre}</p>
+        <small className='ml-smaller text-normal underline inline-block'>View all</small>
+        <div className='flex min-h-[210px] flex-row overflow-x-scroll relative snap-x :snap-mandatory overscroll-x-contain gap-[1rem] w-[100vw]'>
           {
-            !loading && movies
+            movies
               ? (
                 <>
-                  {<MovieList movies={movies} />}
-                  <NextMovies onClick={handleClick} />
+                  {<MovieList movies={movies}/>}
+                  <NextMovies onClick={getMoreMovies} loading={loading} />
                 </>
                 )
               : <Loading />
@@ -31,3 +26,5 @@ export default function GenreList ({ genre }: { genre: string }) {
       </article>
   )
 }
+
+export default memo(GenreList, (prevProps, nextProps) => prevProps.genre === nextProps.genre)

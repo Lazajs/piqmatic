@@ -12,7 +12,7 @@ interface MovieQuery {
 }
 
 export default function useGenreList () {
-  const [getList, { data, loading, error, fetchMore }] = useLazyQuery<MovieQuery>(GET_LIST_BY_GENRE)
+  const [getList, { data, loading, error, fetchMore }] = useLazyQuery<MovieQuery>(GET_LIST_BY_GENRE, { notifyOnNetworkStatusChange: true })
 
   if (error) console.log('Error fetching genre list: ', error.message)
 

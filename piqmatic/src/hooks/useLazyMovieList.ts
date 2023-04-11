@@ -8,8 +8,7 @@ export default function useLazyMovieList (genre: string) {
 
   useEffect(() => {
     if (isIntersecting) {
-      getList({ variables: { genre } })
-      disconnect()
+      getList({ variables: { genre } }).then(() => { disconnect() })
     }
   }, [isIntersecting])
 
