@@ -23,7 +23,9 @@ module.exports = {
       },
       padding: {
         small: '1rem',
-        medium: '2rem'
+        medium: '2rem',
+        large: '4rem',
+        larger: '6rem'
       },
       margin: {
         smaller: '1rem',
