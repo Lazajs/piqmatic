@@ -15,10 +15,11 @@ const typeDefs = `#graphql
     type: String!
     title: String!
     release: Int!
-    description: String!
     ratingData: Rating!
     director: String!
     genres: [String]!
+    description: String!
+    duration: String
   }
 
   type MovieList {
@@ -30,6 +31,7 @@ const typeDefs = `#graphql
   type Query {
     genres: [String]
     listByGenre(genre: String!, next: String): MovieList!
+    movieById(id: String!): Movie!
   }
 `
 

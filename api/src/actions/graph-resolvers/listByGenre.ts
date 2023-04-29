@@ -26,12 +26,13 @@ export default async function listByGenre (_root: unknown, args: Args) {
       type: movie.titleType.text,
       title: movie.titleText.text,
       release: movie.releaseYear.year,
-      description: movie.plot.plotText.plainText,
       ratingData: {
         current: movie.ratingsSummary.aggregateRating || 0,
         votes: movie.ratingsSummary.voteCount
       },
-      genres: movie.genres.genres.map(genre => genre.text)
+      genres: movie.genres.genres.map(genre => genre.text),
+      description: movie.plot.plotText.plainText,
+      duration: movie.runtime?.displayableProperty?.value?.plainText || null
     }
   })
 
@@ -48,12 +49,13 @@ export default async function listByGenre (_root: unknown, args: Args) {
         type: movie.titleType.text,
         title: movie.titleText.text,
         release: movie.releaseYear.year,
-        description: movie.plot.plotText.plainText,
         ratingData: {
           current: movie.ratingsSummary.aggregateRating || 0,
           votes: movie.ratingsSummary.voteCount
         },
-        genres: movie.genres.genres.map(genre => genre.text)
+        genres: movie.genres.genres.map(genre => genre.text),
+        description: movie.plot.plotText.plainText,
+        duration: movie.runtime?.displayableProperty?.value?.plainText || null
       }
     })
     return {

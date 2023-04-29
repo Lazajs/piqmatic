@@ -22,8 +22,9 @@ export interface Movie {
   type: string
   title: string
   release: number
-  description: string
   ratingData: Rating
   director: string
   genres: string[]
+  duration: string
+  description?: string
 }

@@ -1,7 +1,7 @@
-import Loading from '../Loading'
 import useLazyMovieList from 'src/hooks/useLazyMovieList'
 import NextMovies from './NextMovies'
 import MovieList from '../MovieList'
+import MovieSkeleton from 'src/components/MovieSkeleton'
 import { memo } from 'react'
 
 function GenreList ({ genre }: { genre: string }) {
@@ -20,7 +20,7 @@ function GenreList ({ genre }: { genre: string }) {
                   <NextMovies onClick={getMoreMovies} loading={loading} />
                 </>
                 )
-              : <Loading />
+              : Array.from({ length: 5 }).map((_, i) => <MovieSkeleton key={i} />)
           }
         </div>
       </article>

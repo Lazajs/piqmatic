@@ -20,14 +20,38 @@ export const GET_LIST_BY_GENRE = gql`
       release
       title
       type
-      description
       director
       ratingData {
         current
         votes
       }
       genres
+      duration
+      description
     }
   }
 }
+`
+
+export const GET_DETAIL = gql`
+  query ($id: String!) {
+    movieById(id: $id) {
+      id
+      image {
+        url
+        caption
+      }
+      release
+      title
+      type
+      director
+      ratingData {
+        current
+        votes
+      }
+      genres
+      duration
+      description
+    }
+  }
 `

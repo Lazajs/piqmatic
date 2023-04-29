@@ -13,10 +13,11 @@ export interface Movie {
   type: string
   title: string
   release: number
-  description: string
   ratingData: Rating
   director: string
   genres: string[]
+  description?: string
+  duration?: string
 }
 
 export interface MovieList {
@@ -57,6 +58,13 @@ export interface MovieFromAPI {
   }
   genres: {
     genres: [{ text: string }]
+  }
+  runtime: {
+    displayableProperty: {
+      value: {
+        plainText: string
+      }
+    }
   }
 }
 export interface MovieListFromAPI extends MovieList {
