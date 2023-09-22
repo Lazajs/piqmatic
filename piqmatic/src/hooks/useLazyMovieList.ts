@@ -4,11 +4,11 @@ import useNearScreen from './useNearScreen'
 
 export default function useLazyMovieList (genre: string) {
   const { data, loading, getList, getMoreMovies } = useGenreList()
-  const { ref, isIntersecting, disconnect } = useNearScreen()
+  const { ref, isIntersecting } = useNearScreen()
 
   useEffect(() => {
     if (isIntersecting) {
-      getList({ variables: { genre } }).then(() => { disconnect() })
+      getList({ variables: { genre } }).then(() => { console.log('done') })
     }
   }, [isIntersecting])
 

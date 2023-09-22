@@ -2,27 +2,29 @@ import { useRef, useEffect, useState } from 'react'
 
 export default function useNearScreen () {
   const ref = useRef<HTMLDivElement | null>(null)
-  const [isIntersecting, setIsIntersecting] = useState<boolean | 'disconnected'>(false)
+  const [isIntersecting, setIsIntersecting] = useState<boolean>(false)
 
-  const onChange = (entries: any[]) => {
+  const handleIntersection = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
     const element = entries[0]
-    setIsIntersecting(prev => prev === 'disconnected' ? prev : element.isIntersecting)
-  }
-
-  const observer = new IntersectionObserver(onChange, {
-    rootMargin: '50px'
-  })
-
-  const disconnect = () => {
-    observer.disconnect()
-    setIsIntersecting('disconnected')
+    console.log(element)
+    if (element.isIntersecting) {
+      setIsIntersecting(true)
+      observer.disconnect()
+    }
   }
 
   useEffect(() => {
-    if (ref?.current) observer.observe(ref.current)
+    let disconnect = () => {}
 
+    if (ref?.current) {
+      const observer = new IntersectionObserver(handleIntersection, {
+        rootMargin: '50px'
+      })
+      disconnect = () => { observer.disconnect() }
+      observer.observe(ref.current)
+    }
     return () => { disconnect() }
   }, [ref.current])
 
-  return { ref, isIntersecting, disconnect }
+  return { ref, isIntersecting }
 }
